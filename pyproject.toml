@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools>=64", "setuptools_scm>=8", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "risk_informed_planner"
+authors = [
+  { name = "Ozan Kaya", email = "ozan.kaya@ntnu.no" },
+  { name = "Emir Cem Gezer", email = "me@emircem.com" },
+]
+description = "Risk-informed marine planning studies and figure generation."
+readme = "README.md"
+requires-python = ">=3.12"
+license = { file = "LICENSE" }
+dynamic = ["version", "dependencies"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "License :: OSI Approved :: European Union Public Licence 1.2 (EUPL 1.2)",
+  "Intended Audience :: Science/Research",
+  "Topic :: Scientific/Engineering",
+  "Topic :: Scientific/Engineering :: Physics",
+  "Operating System :: OS Independent",
+]
+
+keywords = ["motion planning", "robotics", "sampling-based planning", "RRT", "Bayesian networks", "marine vessels", "collision risk"]
+
+[project.optional-dependencies]
+notebooks = ["jupyterlab", "ipykernel", "scikit-learn"]
+docs = ["Sphinx==8.2.3", "sphinx-rtd-theme==3.1.0", "sphinx-autoapi==3.8.1"]
+
+[project.urls]
+Homepage = "https://github.com/OznKaya/Risk-Aware-RRT-Planner"
+Repository = "https://github.com/OznKaya/Risk-Aware-RRT-Planner.git"
+Issues = "https://github.com/OznKaya/Risk-Aware-RRT-Planner/issues"
+Source = "https://github.com/OznKaya/Risk-Aware-RRT-Planner"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.dynamic]
+dependencies = { file = ["requirements.in"] }
+
+[tool.setuptools.package-data]
+"risk_informed_planner.bbn" = ["BBN_autonomous_ranked.xdsl"]
+
+[tool.setuptools_scm]
+# Basic setuptools-scm config: derive version from git tags.
+# No write_to/version_file needed; importlib.metadata reads dist metadata.
+version_scheme = 'post-release'
+fallback_version = '0.1.0'

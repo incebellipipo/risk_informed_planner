@@ -1,0 +1,8 @@
+# Force pip to use the BayesFusion Academic repository for pysmile
+--index-url https://support.bayesfusion.com/pysmile-A/
+
+# Use the default PyPI repository for all other packages
+--extra-index-url https://pypi.org/simple
+
+-r requirements.in
+pysmile

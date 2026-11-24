@@ -1,0 +1,13 @@
+image: ./base.png
+resolution: 2.000000
+origin: [0.000000, 0.000000, 0.000000]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196
+layers:
+- name: depth
+  file: ./depth.png
+  values:
+    '#0000ff': 20.0
+- name: traffic
+  file: ./traffic.png
